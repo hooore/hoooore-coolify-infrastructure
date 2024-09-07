@@ -7,7 +7,6 @@ services:
       - DATABASE_TYPE=postgresql
       - APP_SECRET=${APP_SECRET}
     networks:
-      - public-web
       - umami-internal
     healthcheck:
       test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
@@ -41,5 +40,3 @@ volumes:
 
 networks:
   umami-internal:
-  public-web:
-    external: true

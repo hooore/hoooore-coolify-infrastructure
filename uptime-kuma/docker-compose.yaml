@@ -4,13 +4,7 @@ services:
     restart: unless-stopped
     volumes:
       - uptime-kuma:/app/data
-    networks:
-      - public-web
 
 volumes:
   uptime-kuma:
-    external: true
-
-networks:
-  public-web:
     external: true
