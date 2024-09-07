@@ -1,13 +1,6 @@
 services:
   uptime-kuma:
     image: louislam/uptime-kuma:1-debian
-    labels:
-      - "traefik.enable=true"
-      - "traefik.docker.network=public-web"
-      - "traefik.http.routers.uptime-kuma.rule=Host(`${DEPLOYMENT_HOST}`)"
-      - "traefik.http.routers.uptime-kuma.entrypoints=web,websecure"
-      - "traefik.http.routers.uptime-kuma.tls.certresolver=myresolver"
-      - "traefik.http.services.uptime-kuma.loadbalancer.server.port=3001"
     restart: unless-stopped
     volumes:
       - uptime-kuma:/app/data
